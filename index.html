@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>HyperMultiplier</title>
+        <style>
+            .container {
+                text-align: center;
+            }
+            button{
+                width: 200px;
+                height: 30px;
+                font-size: 20px;
+                font-weight: bold;
+                color: black;
+            }
+        </style>
+        <script src="hypermultiplier.js"></script> 
+        <script>    
+            function Mul(){
+                var s1 = document.getElementById("n1").value;
+                var s2 = document.getElementById("n2").value;
+                document.getElementById("res").value = Multiply(s1,s2);
+            }            
+        </script>
+    </head>
+    <body>
+        <center>
+		<h1>HYPER MULTIPLIER 2</h1>
+		<p>[x6 times faster than Hyper Multiplier 1]</p>
+		<p><b>Multiplication of very large (thousands of digits) numbers.</b></p>
+		<p>Written by Ali Eskici (<i>23.02.2023</i>)</p>
+        <p><a href="github.com/alieskici" target="_blank">github.com/alieskici</a></p>
+		<p><a href="mailto:alies76@gmail.com">alies76@gmail.com</a></p>
+        </center>
+        <div class="container">
+            <div><textarea rows="4" cols="30" id="n1"></textarea></div>
+            <div><textarea rows="4" cols="30" id="n2"></textarea></div>
+            <div><button type="button" onclick="Mul()"></button></div>
+            <div><textarea id="res" rows="8" cols="30"></textarea></div>
+        </div>
+    </body>
+</html>
