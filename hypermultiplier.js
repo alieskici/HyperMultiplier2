@@ -2,15 +2,28 @@
 
 	HYPER MULTIPLIER 2
 	
-	[x6 times faster than Hyper Multiplier 1]
+	[x10 times faster than Hyper Multiplier 1]
 	
 	Multiples very large numbers (thousand digits)
-	(recommended houndred digits for JS)
 	
 	Written by Ali Eskici
 	23.02.2023
 	github.com/alieskici
-	alies76@gmail.com
+	alieskici@hotmail.com
+
+    use:
+    1) include in your html: hypermultiplier.js
+    <script src="hypermultiplier.js"></script>
+
+    2) Insert Mul function into html:
+    function Mul(){
+        var s1 = document.getElementById(numberArea1).value;
+        var s2 = document.getElementById(numberArea2).value;
+        document.getElementById(resultArea).value = Multiply(s1,s2);
+    }
+
+    3) get s1 = number 1, s2 = number 2 values and send them Multiply function as:
+    Multiply(s1, s2) -> this func returns a string value as result of multiply process.
 	
 */
 
@@ -19,7 +32,7 @@ function Clean(a) {
     var met = "";
     var m = "";
     for (let i = 0; i < a.length; i++) {
-        m = a.substring(i, i+1);
+        m = a.charAt(i);
         
         if (gecerli.indexOf(m) > -1) {
             met += m;
@@ -57,13 +70,13 @@ function Multiply(a1, a2) {
     //less to lot
     for (let i = 0; i < c1.length; i++) {
         for (let j = 0; j <= i; j++) {
-            t1 += Number(c1.substring(c1.length - 1 - i + j, c1.length - i + j)) * Number(c2.substring(c2.length - 1 - j, c2.length - j));
+            t1 += Number(c1.charAt(c1.length - 1 - i + j)) * Number(c2.charAt(c2.length - 1 - j));
         }
 
         toplam = (t1 + elde).toString();
         elde = parseInt((t1+elde)/10);
 
-        sonuc = toplam.substring(toplam.length - 1, toplam.length) + sonuc;
+        sonuc = toplam.charAt(toplam.length - 1) + sonuc;
         t1 = 0;
     }
 
@@ -71,20 +84,20 @@ function Multiply(a1, a2) {
     if (c1.length > 1) {
         for (let i = c1.length - 2; i >= 0; i--) {
             for (let j = i; j >= 0; j--) {
-                t1 += Number(c1.substring(i - j, i - j + 1)) * Number(c2.substring(j, j+1));
+                t1 += Number(c1.charAt(i - j)) * Number(c2.charAt(j));
             }
 
             toplam = (t1 + elde).toString();
             elde = parseInt((t1+elde)/10);
 
-            sonuc = toplam.substring(toplam.length - 1, toplam.length) + sonuc;
+            sonuc = toplam.charAt(toplam.length - 1) + sonuc;
             t1 = 0;
         }
     }
 
     //remove left zeros
     for (let i = 0; i < sonuc.length; i++) {
-        if (sonuc.substring(i,i+1)!="0") {
+        if (sonuc.charAt(i)!="0") {
             sonuc = sonuc.substring(i,sonuc.length);
             break;
         }
